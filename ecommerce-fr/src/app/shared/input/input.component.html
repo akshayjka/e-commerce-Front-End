@@ -1,1 +1,5 @@
-<p>input works!</p>
+<label>
+    {{label}}
+</label>
+<input [placeholder]="placeholder" [type]="type" [class.invalid]="isTouched && !isValid">
+
