@@ -1,2 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+// @import './theme.scss';
+
 $blue : #0d6efd;
+
+
+// SAVE BUTTON GLOBAL STYLE..
+.save-button {
+    min-width: 150px;
+    color: #fff; 
+    box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
+    
+    &:hover {
+      background-color: #112074; /* Hover background color */
+    }
+
+  }
+
+
+  // CANCEL BUTTON GLOBAL STYLE..
+  .cancel-button {
+    min-width: 150px;
+    color: #fff; 
+    box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
+    &:hover {
+        background-color: #f7291a;
+    }
+  }
+
+  // ICON STYLE..
+
+  i{
+    margin-right:1cqb;
+  }
+
+  
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

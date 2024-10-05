@@ -1,3 +1,22 @@
 .invalid{
     border: 1px solid red;
 }
+.formfield{
+    width: 100%;
+}
+
+
+// :host ::ng-deep .formfield .mat-form-field-label {
+//     color: grey; /* Default label color */
+//   }
+//   :host ::ng-deep .formfield.mat-focused .mat-form-field-label {
+//     color: brown; /* Label color on focus */
+//   }
+//   :host ::ng-deep .formfield.mat-focused .mat-form-field-underline {
+//     border-bottom: 1px solid brown; /* Border color on focus */
+//   }
+
+//   ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+//     color: #000000; /* Changes the default border color */
+//     border-color:#000000; /* When the input is inactive */
+//   }

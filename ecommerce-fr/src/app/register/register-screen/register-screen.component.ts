@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-screen',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterScreenComponent implements OnInit {
 
-  constructor() { }
+  registerForm:FormGroup;
+
+  constructor(private fb:FormBuilder) {
+    this.registerForm = this.fb.group({
+      userName : ['',Validators.required],
+      email : [''],
+      password : [''],
+      mobileNumber : [''],
+      street : [''],
+      city: [''],
+      state : [''],
+      postalCode : [''],
+      dob:[''],
+      gender : ['']
+    })
+   }
+
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    console.log("Form on submit")
   }
 
 }

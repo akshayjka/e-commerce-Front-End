@@ -1,5 +1,37 @@
-<label>
+<!-- <label class="form-label">
     {{label}}
 </label>
-<input [placeholder]="placeholder" [type]="type" [class.invalid]="isTouched && !isValid">
+<input class="form-control" [placeholder]="placeholder" [type]="type" [class.invalid]="isTouched && !isValid"> -->
 
+<!-- <mat-form-field appearance="legacy">
+    <mat-label *ngIf="label"> {{label}}</mat-label>
+    <input matInput [placeholder]="placeholder" [type]="type" [class.invalid]="isTouched && !isValid">
+  </mat-form-field> -->
+
+  <mat-form-field appearance="fill" class="formfield">
+    <mat-label>{{ label }}</mat-label>
+    <input
+      matInput
+      [placeholder]="placeholder"
+      [value]="value"
+      (input)="onInput($event)"
+      (blur)="onTouched()"
+      [type]="isDateField ? 'text' : type"
+      *ngIf="!isDateField"
+    />
+
+    <input
+    matInput
+    [placeholder]="placeholder"
+    [matDatepicker]="datepicker"
+    (input)="onInput($event)"
+    (blur)="onTouched()"
+    *ngIf="isDateField"
+  />
+  <mat-datepicker-toggle *ngIf="isDateField" matSuffix [for]="datepicker"></mat-datepicker-toggle>
+
+  <!-- The datepicker itself (conditionally rendered) -->
+  <mat-datepicker *ngIf="isDateField" #datepicker></mat-datepicker>
+
+    <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+  </mat-form-field>

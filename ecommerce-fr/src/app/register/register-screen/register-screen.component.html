@@ -1,20 +1,178 @@
-<form>
-    <div class="mb-3">
-        <app-input label="Enter Name" placeholder="Enter Your Name" type="text"></app-input>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 register-card">
+            <mat-card class="register-card" appearance="outlined">
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-4 col-sm-12">
+                            <mat-card>
+
+
+                                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                      <div class="carousel-item active" data-bs-interval="2500">
+                                        <img src="\assets\register-screen-collections\0d9aa8e2-bdfb-46d2-b850-dbe5da0af09f.avif" class="d-block w-100" alt="...">
+                                      </div>
+                                      <div class="carousel-item" data-bs-interval="2500">
+                                        <img src="\assets\register-screen-collections\8bc1ca83-c606-465d-8b55-cb4f0f00eb10.avif" class="d-block w-100" alt="...">
+                                      </div>
+                                      <div class="carousel-item" data-bs-interval="2500">
+                                        <img src="\assets\register-screen-collections\44189b06-ddfe-46d0-92a3-c13a7be4011a.avif" class="d-block w-100" alt="...">
+                                      </div>
+                                      <div class="carousel-item" data-bs-interval="2500">
+                                        <img src="\assets\register-screen-collections\eb740f9a-edef-4d6b-a498-705a38ac0484.avif" class="d-block w-100" alt="...">
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+                            </mat-card>
+                        </div>
+
+
+                        <div class="col-lg-6 col-md-8 col-sm-12">
+                            <mat-card>
+
+                                <mat-card-title class="mt-3 p-2">
+                                    User Details
+                                </mat-card-title>
+
+                                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                                    <div class="row mt-4">
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+                                            <span class=" me-5">
+                                                <app-input label="Full Name" placeholder="Enter Your FullName"
+                                                    formControlName="userName" type="text"></app-input>
+                                            </span>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+                                            <span class=" me-5">
+                                                <app-input label="Email Address" placeholder="Enter Your email Address"
+                                                    formControlName="email" type="email"></app-input>
+                                            </span>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row mt-2">
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+
+                                            <span class="me-5">
+                                                <app-input label="Password" placeholder="Enter Your Password"
+                                                    formControlName="password" type="password"></app-input>
+                                            </span>
+
+                                        </div>
+
+
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+
+                                            <div class="">
+                                                <app-input label="Confirm Password" placeholder="Retype your password"
+                                                    formControlName="password" type="password"></app-input>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="row mt-2">
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+
+                                            <span class="me-5">
+                                                <app-input label="DOB" placeholder="Date Of Birth"
+                                                    formControlName="dob" type="text" [isDateField]="true"></app-input>
+                                            </span>
+
+                                        </div>
+
+
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+
+                                            <div class="">
+                                                <app-input label="Gender" placeholder="Select your Gender"
+                                                    formControlName="gender" type="text"></app-input>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <mat-card-title class="ps-2 mt-3 mb-4">
+                                        Contact Information
+                                    </mat-card-title>
+
+                                    <div>
+                                        <app-input type="text" label="Street Information"
+                                            placeholder="Enter House No, Street Name, Area"
+                                            formCOntrolName="street"></app-input>
+
+                                    </div>
+
+
+                                    <div class="row mt-2">
+                                        <span class="col-lg-6 col-md-12 col=sm-12">
+                                            <app-input label="City" placeholder="Enter your city" type="text"
+                                            formControlName="city"></app-input>
+                                        </span>
+
+                                        <span class="col-lg-6 col-md-12 col-sm-12">
+                                            <app-input label="State" type="text" placeholder="Enter your State"
+                                            formControlName="state"></app-input>
+                                        </span>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+                                            <app-input label="Postal Code" type="number"
+                                            placeholder="Enter your Postal Code"
+                                            formControlName="postalCode"></app-input>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+                                                <app-input type="text" placeholder="Enter Mobile Number" label="Mobile Number"
+                                                formControlName="mobileNumber"></app-input>
+                                        </div>
+                                    </div>
+
+
+                                </form>
+
+
+                                <div class="row footer-action">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <button mat-raised-button class="save-button" color="primary">
+                                            <i class="bi bi-arrow-right-square"></i>
+                                            Register</button>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <button mat-raised-button class="cancel-button" color="warn">
+                                            <i class="bi bi-x-square"></i>
+                                            Cancel</button>
+                                    </div>
+
+                                </div>
+                                
+
+                            </mat-card>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </mat-card>
+        </div>
     </div>
-    <div class="mb-3">
-        <app-input label="Enter Name" placeholder="Enter Your Name" type="password"></app-input>
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-
-
-
-<app-input label="Enter Name" placeholder="Enter Your Name" type="text"></app-input>
-
-<h2 class="hello">Hello</h2>
-<button class="btn btn-primary"> Click</button>
+</div>
