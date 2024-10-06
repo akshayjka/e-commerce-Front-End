@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input, OnInit, ViewChild } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
 
 @Component({
@@ -21,6 +21,10 @@ export class InputComponent implements OnInit, ControlValueAccessor{
   @Input() type: string = 'text';
   @Input() errorMessage: string = '';
   @Input() isDateField : boolean = false;
+  @Input() isRequired : boolean = false;
+  @Input() control! :FormControl;
+  @Input() isValid: boolean = true;
+  @Input() isTouched : boolean = false;
 
   value: string = '';
 
@@ -28,7 +32,8 @@ export class InputComponent implements OnInit, ControlValueAccessor{
 
   // ControlValueAccessor methods
   onChange = (value: string) => {};
-  onTouched = () => {};
+  onTouched = () => {
+  };
 
   writeValue(value: any): void {
     this.value = value;
@@ -48,13 +53,14 @@ export class InputComponent implements OnInit, ControlValueAccessor{
     this.value = inputElement.value;
     this.onChange(this.value);
   }
-
-
   constructor() { 
-
   }
- 
   ngOnInit(): void {
+  }
+
+  getErrorMessage() {
+    console.log("entertajdnkamsdnsbdk")
+   
   }
 
 }

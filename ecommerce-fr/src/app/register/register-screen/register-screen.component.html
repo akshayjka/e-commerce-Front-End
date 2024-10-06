@@ -1,14 +1,13 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 register-card">
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
             <mat-card class="register-card" appearance="outlined">
 
                 <div class="container-fluid">
                     <div class="row">
 
                         <div class="col-lg-6 col-md-4 col-sm-12">
-                            <mat-card>
-
+                            <mat-card class="slider-card">
 
                                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                                     <div class="carousel-inner">
@@ -27,7 +26,6 @@
                                     </div>
                                   </div>
 
-
                             </mat-card>
                         </div>
 
@@ -36,7 +34,7 @@
                             <mat-card>
 
                                 <mat-card-title class="mt-3 p-2">
-                                    User Details
+                                  Enter Your Details
                                 </mat-card-title>
 
                                 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -44,15 +42,21 @@
                                     <div class="row mt-4">
                                         <div class="col-lg-6 col-md-12 col-sm-12">
                                             <span class=" me-5">
-                                                <app-input label="Full Name" placeholder="Enter Your FullName"
-                                                    formControlName="userName" type="text"></app-input>
+                                                <!-- <mat-form-field appearance="fill">
+                                                    <mat-label>Enter your email</mat-label>
+                                                    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                                                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                                                  </mat-form-field> -->
+
+                                                <app-input label="Full Name" placeholder="Enter Your FullName" [isRequired]="true"
+                                                    formControlName="name" type="text" errorMessage="Enter Name"></app-input>
                                             </span>
                                         </div>
 
                                         <div class="col-lg-6 col-md-12 col-sm-12">
                                             <span class=" me-5">
                                                 <app-input label="Email Address" placeholder="Enter Your email Address"
-                                                    formControlName="email" type="email"></app-input>
+                                                [isRequired]="true" formControlName="email" type="email" errorMessage="Enter Name"></app-input>
                                             </span>
                                         </div>
 
@@ -64,7 +68,7 @@
 
                                             <span class="me-5">
                                                 <app-input label="Password" placeholder="Enter Your Password"
-                                                    formControlName="password" type="password"></app-input>
+                                                    formControlName="password" [isRequired]="true" type="password"></app-input>
                                             </span>
 
                                         </div>
@@ -74,7 +78,7 @@
 
                                             <div class="">
                                                 <app-input label="Confirm Password" placeholder="Retype your password"
-                                                    formControlName="password" type="password"></app-input>
+                                                    formControlName="password" [isRequired]="true" type="password"></app-input>
                                             </div>
 
                                         </div>
@@ -97,8 +101,12 @@
                                         <div class="col-lg-6 col-md-12 col-sm-12">
 
                                             <div class="">
-                                                <app-input label="Gender" placeholder="Select your Gender"
-                                                    formControlName="gender" type="text"></app-input>
+                                                <!-- <app-input label="Gender" placeholder="Select your Gender"
+                                                    formControlName="gender" type="text"></app-input> -->
+                                                    <app-dropdown
+                                                    label="Gender"
+                                                    [options]="genders"
+                                                    [control]="genderControl"></app-dropdown>
                                             </div>
 
                                         </div>
@@ -108,7 +116,7 @@
 
 
                                     <mat-card-title class="ps-2 mt-3 mb-4">
-                                        Contact Information
+                                       Enter Your Contact Information
                                     </mat-card-title>
 
                                     <div>
@@ -140,29 +148,32 @@
 
                                         <div class="col-lg-6 col-md-12 col-sm-12">
                                                 <app-input type="text" placeholder="Enter Mobile Number" label="Mobile Number"
-                                                formControlName="mobileNumber"></app-input>
+                                                formControlName="mobileNumber" [isRequired]="true"></app-input>
                                         </div>
+                                    </div>
+
+
+                                    <div class="row footer-action">
+
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <button mat-raised-button class="save-button" type="submit" [disabled]="registerForm.invalid" color="primary">
+                                                <i class="bi bi-arrow-right-square"></i>
+                                                Register</button>
+                                        </div>
+    
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <button mat-raised-button class="cancel-button" color="warn">
+                                                <i class="bi bi-x-square"></i>
+                                                Cancel</button>
+                                        </div>
+    
                                     </div>
 
 
                                 </form>
 
 
-                                <div class="row footer-action">
-
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <button mat-raised-button class="save-button" color="primary">
-                                            <i class="bi bi-arrow-right-square"></i>
-                                            Register</button>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <button mat-raised-button class="cancel-button" color="warn">
-                                            <i class="bi bi-x-square"></i>
-                                            Cancel</button>
-                                    </div>
-
-                                </div>
+                              
                                 
 
                             </mat-card>

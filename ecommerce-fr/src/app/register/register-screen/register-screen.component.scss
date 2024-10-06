@@ -1,10 +1,22 @@
 @import 'src/styles';
 
-.hello{
-    color:$blue;
+
+.register-card {
+    height:98vh;
 }
-  .footer-action{
+.hello {
+    color: $blue;
+}
+
+.footer-action {
     display: flex;
     justify-content: space-between;
-  }
-  
+}
+
+.slider-card {
+    height:98vh;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

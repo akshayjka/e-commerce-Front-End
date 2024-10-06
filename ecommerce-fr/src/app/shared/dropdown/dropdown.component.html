@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill" class="formfield">
+    <mat-label>{{ label }}</mat-label>
+    <mat-select [formControl]="control">
+      <!-- Loop through options array -->
+      <mat-option *ngFor="let option of options" [value]="option.value">
+        {{ option.label }}
+      </mat-option>
+    </mat-select>
+    <mat-hint align="end" *ngIf="showHint">Please select an option</mat-hint>
+  </mat-form-field>
+  
