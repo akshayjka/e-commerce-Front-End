@@ -13,14 +13,15 @@ export class RegisterServicesService {
   private createBasicAuthHeader(username: string, password: string): HttpHeaders {
     const encodedCredentials = btoa(`${username}:${password}`);
     const headers = new HttpHeaders({
-      'Authorization': `Basic ${encodedCredentials}`
+      'Authorization': `Basic ${encodedCredentials}`,
+      'Content-Type': 'application/json'
     });
     return headers;
   }
 
   createUserApi(user:any, username: string, password: string) :Observable<any> {
     const headers = this.createBasicAuthHeader(username, password);
-    return this.http.post(`${this.commonUrl}/user`,user);
+    return this.http.post(`${this.commonUrl}/user`,user, {headers});
   }
 
 }
