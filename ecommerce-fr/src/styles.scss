@@ -5,10 +5,18 @@
 $blue : #0d6efd;
 
 
+
+// FORM FIELD OR INPUT FIELD... STYLES
 .formfield{
     width: 100%;
 }
 
+
+// HEADING TEXT STYLE...
+.title-text{
+  text-align: center;
+  font-weight: 700;
+}
 
 // SAVE BUTTON GLOBAL STYLE..
 .save-button {
@@ -18,6 +26,13 @@ $blue : #0d6efd;
     
     &:hover {
       background-color: #112074; /* Hover background color */
+    }
+
+    &:disabled {
+      background-color: #ccc; /* Greyed-out background when disabled */
+      cursor: not-allowed; /* Show a 'not-allowed' cursor when disabled */
+      box-shadow: none; /* Remove box-shadow */
+      pointer-events: none; /* Disable hover and click events */
     }
 
   }
@@ -33,11 +48,55 @@ $blue : #0d6efd;
     }
   }
 
-  // ICON STYLE..
+  // INFO BUTTON GLOBAL STYLE....
+  .info-button {
+    background-color: #1e8f7e;
+    color: #fff;
+    box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
+    &:hover{
+      background-color: #2db5a1;
+    }
+  }
 
+  // ICON STYLE..
   i{
     margin-right:1cqb;
   }
+
+
+  // CARD FLIP STYLING FRONT AND BACK
+  .flip-container {
+    perspective: 1000px;
+  }
+  
+  .flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  
+  .flip-container.flipped .flipper {
+    transform: rotateY(180deg);
+  }
+  
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .back {
+    transform: rotateY(180deg);
+  }
+
+  // FORGOT PASSWORD STYLE ...
+
+  .forgot-password {
+    text-decoration:dotted;
+    text-align: center;
+    margin-bottom: 3em;
+  }
+  
 
   
 

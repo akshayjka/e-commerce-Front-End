@@ -25,11 +25,11 @@
     matInput
     [placeholder]="placeholder"
     [matDatepicker]="datepicker"
-    (input)="onInput($event)"
     (blur)="onTouched()"
     [required]="isRequired"
     *ngIf="isDateField"
   />
+  <!-- (input)="onInput($event)" -->
   <mat-datepicker-toggle *ngIf="isDateField" matSuffix [for]="datepicker"></mat-datepicker-toggle>
 
   <!-- The datepicker itself (conditionally rendered) -->

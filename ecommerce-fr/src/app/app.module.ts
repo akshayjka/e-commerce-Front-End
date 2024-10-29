@@ -16,8 +16,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
+import { LoginScreenComponent } from './register/login-screen/login-screen.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { DropdownComponent } from './shared/dropdown/dropdown.component';
     InputComponent,
     RegisterScreenComponent,
     DropdownComponent,
+    LoginScreenComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { DropdownComponent } from './shared/dropdown/dropdown.component';
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

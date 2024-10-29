@@ -1,4 +1,5 @@
-import { Component, forwardRef, Input, OnInit, ViewChild } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
 
@@ -12,6 +13,7 @@ import { MatDatepicker } from '@angular/material/datepicker';
       useExisting: forwardRef(() => InputComponent),
       multi: true,
     },
+    DatePipe
   ],
 })
 export class InputComponent implements OnInit, ControlValueAccessor{
@@ -21,10 +23,14 @@ export class InputComponent implements OnInit, ControlValueAccessor{
   @Input() type: string = 'text';
   @Input() errorMessage: string = '';
   @Input() isDateField : boolean = false;
+  @Input() control!: FormControl;
   @Input() isRequired : boolean = false;
-  @Input() control! :FormControl;
   @Input() isValid: boolean = true;
   @Input() isTouched : boolean = false;
+
+  @Output() dateChange = new EventEmitter<string>();
+
+  
 
   value: string = '';
 
@@ -46,6 +52,13 @@ export class InputComponent implements OnInit, ControlValueAccessor{
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+  // onDateChange(event: any): void {
+  //   const selectedDate = event.value;
+  //   if (selectedDate) {
+  //     const formattedDate = this.datePipe.transform(selectedDate, 'dd-MM-yyyy'); // Format date as dd-MM-yyyy
+  //     this.dateChange.emit(formattedDate); // Emit formatted date
+  //   }
+  // }
 
 
   onInput(event: Event): void {
@@ -53,7 +66,7 @@ export class InputComponent implements OnInit, ControlValueAccessor{
     this.value = inputElement.value;
     this.onChange(this.value);
   }
-  constructor() { 
+  constructor(private datePipe: DatePipe) { 
   }
   ngOnInit(): void {
   }

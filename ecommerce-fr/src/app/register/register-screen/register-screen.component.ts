@@ -12,9 +12,13 @@ export class RegisterScreenComponent implements OnInit {
   registerForm:FormGroup;
   isrequired:boolean = true;
 
+  isLoginScreen:boolean = true;
+
+
+
+  // API AUTHENTICATION....
    username:any = 'test';
    password:any = 'test@123';
-
 
   genders = [
     { value: 'MALE', label: 'Male' },
@@ -22,40 +26,62 @@ export class RegisterScreenComponent implements OnInit {
     { value: 'OTHER', label: 'Other' }
   ];
 
-  constructor(private fb:FormBuilder, private registerService:RegisterServicesService) {
+  constructor(
+    private fb:FormBuilder, 
+    private registerService:RegisterServicesService,
+  ) {
     this.registerForm = this.fb.group({
       name : ['', Validators.required],
       email : ['',[Validators.required, Validators.email]],
       password : [''],
-      dob:[''],
+      dob:[null] ,
       gender : ['', Validators.required],
       street : [''],
       area :[''],
       city: [''],
       state : [''],
-      postalCode : [''],
-      mobileNumber : ['', Validators.required],
+      postal_code : [''],
+      mobile_number : ['', Validators.required],
     })
    }
 
    get genderControl(): FormControl {
     return this.registerForm.get('gender') as FormControl;
   }
+
   ngOnInit(): void {
   }
 
   onSubmit() {
     console.log("Form on submit");
     this.registerService.createUserApi(this.registerForm.value, this.username, this.password).subscribe((data:any)=>{
-      console.log("The resposne after creating the user", data)
+      console.log("The resposne after creating the user", this.registerForm.value.dob);
+        this.registerService.openSnackBar(5000,'User Created Successfully!!', 'center', 'bottom');
+        this.toggleFlip();
     },
   error =>{
     console.error('Error : ', error);
+    this.registerService.openSnackBar(5000, 'Error occurred while creating user!', 'center', 'bottom');
     })
   }
 
-  registerUser() {
-    
+  toggleFlip() {
+    this.isLoginScreen = !this.isLoginScreen;
   }
+
+  cancel() {
+    this.registerForm.reset();
+  }
+
+  gotoLogin() {
+    this.toggleFlip();
+  }
+
+  gotoRegister(event:any) {
+    console.log("The event emitter from login Component to Child Component : ",event);
+    this.toggleFlip();
+  }
+
+
 
 }
