@@ -1,0 +1,48 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .topbar {
+    height: 60px; /* Adjust height as needed */
+    background-color: #333; /* Example background color */
+  }
+  
+  .main-content {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+  
+  .sidemenu {
+    width: 250px; /* Expanded width */
+    transition: width 0.3s ease;
+    background-color: #333; /* Example background color */
+  }
+  
+  .sidemenu.collapsed {
+    width: 80px; /* Collapsed width */
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .content.collapsed {
+    margin-left: 80px;
+  }
+  
+  .content.expanded {
+    margin-left: 250px;
+  }
+  

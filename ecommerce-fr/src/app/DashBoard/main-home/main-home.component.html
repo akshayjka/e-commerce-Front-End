@@ -1,0 +1,15 @@
+<div class="app-container">
+    <app-topbar class="topbar"></app-topbar>
+    <div class="main-content">
+      <app-sidemenu (selectedMenu)="test($event)"></app-sidemenu>
+
+      <div class="content">
+        <ng-container *ngIf="isProduct">
+            <app-products></app-products>
+        </ng-container>
+      
+      </div>
+
+    </div>
+  </div>
+  

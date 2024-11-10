@@ -1,0 +1,36 @@
+<div class="sidebar" [class.expanded]="isExpanded">
+    <mat-nav-list>
+
+
+        <mat-list (click)="toggle()">
+            <mat-icon class="side-icon" >compare_arrows</mat-icon>
+            <span class="menu-label" *ngIf="isExpanded"> Collapse </span>
+        </mat-list>
+        
+
+      <mat-list-item *ngFor="let item of menuItems" (click)="toggleExpand(item)"
+       [ngClass]="{'active-tab' :isActiveRoute(item.route)}">
+        
+        <mat-icon matListIcon class="side-icon">{{ item.icon }}</mat-icon>
+        <span class="menu-label" 
+         *ngIf="isExpanded">{{ item.label }}</span>
+  
+        <!-- Show dropdown icon if there are sub-items -->
+        <mat-icon *ngIf="isExpanded && item.subItems" style="margin-left:auto;">
+          {{ expandedItem === item ? 'expand_less' : 'expand_more' }}
+        </mat-icon>
+      </mat-list-item>
+  
+      <!-- Sub-items displayed if item is expanded -->
+      <ng-container *ngIf="expandedItem === item">
+        <div class="sub-menu" *ngFor="let subItem of item.subItems">
+          <mat-list-item (click)="toggleExpandsubMenu(subItem)"
+          [ngClass]="{'active-tab' :isActiveRoute(subItem.route)}">
+            <mat-icon class="side-icon" matListIcon>{{ subItem.icon }}</mat-icon>
+            <span class="menu-label ">{{ subItem.label }}</span>
+          </mat-list-item>
+        </div>
+      </ng-container>
+    </mat-nav-list>
+  </div>
+  

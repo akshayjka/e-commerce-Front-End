@@ -63,6 +63,13 @@ $blue : #0d6efd;
     margin-right:1cqb;
   }
 
+  // BUTTON AT END OF ROW...
+  .end-button {
+    display: flex;
+    // align-items: end;
+    justify-content: end;
+  }
+
 
   // CARD FLIP STYLING FRONT AND BACK
   .flip-container {

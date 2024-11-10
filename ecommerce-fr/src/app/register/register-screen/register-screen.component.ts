@@ -54,7 +54,7 @@ export class RegisterScreenComponent implements OnInit {
 
   onSubmit() {
     console.log("Form on submit");
-    this.registerService.createUserApi(this.registerForm.value, this.username, this.password).subscribe((data:any)=>{
+    this.registerService.createUserApi(this.registerForm.value).subscribe((data:any)=>{
       console.log("The resposne after creating the user", this.registerForm.value.dob);
         this.registerService.openSnackBar(5000,'User Created Successfully!!', 'center', 'bottom');
         this.toggleFlip();

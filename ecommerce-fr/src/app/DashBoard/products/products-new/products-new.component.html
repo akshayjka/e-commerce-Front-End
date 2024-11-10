@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="title-text">Add Product</h1>
+        <button mat-icon-button mat-dialog-close aria-label="Close dialog">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+
+    <div class="row mt-3">
+        <h4>New Product Details</h4>
+
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <form [formGroup]="addProductForm">
+                <div>
+                    <app-input label="Product Name"
+                    placeholder="Enter Your FullName" [isRequired]="true"
+                    formControlName="productName" type="text"
+                    errorMessage="Enter Name"></app-input>
+                </div>
+
+                <div>
+                    <app-input label="Product Description"
+                    placeholder="Enter Product Description" [isRequired]="true"
+                    formControlName="productDesc" type="text"
+                    errorMessage="Enter Description"></app-input>
+                </div>
+
+                <div>
+                    <app-dropdown label="Category" [options]="category"
+                    [control]="categoryControl"></app-dropdown>
+                </div>
+
+                <div>
+                    <app-input label="Quantity "Description
+                    placeholder="Number of Quantity" [isRequired]="false"
+                    formControlName="productDesc" type="text"
+                    errorMessage="Enter Description"></app-input>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <app-upload-image></app-upload-image>
+        </div>
+
+    </div>
+</div>

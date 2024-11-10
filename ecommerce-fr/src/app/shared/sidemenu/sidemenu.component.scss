@@ -1,0 +1,84 @@
+.sidebar {
+    width: 80px;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    background-color: #333;
+    color: white;
+    height: 100vh;
+  
+    &.expanded {
+      width: 250px;
+    }
+  
+    mat-nav-list {
+      padding: 10;
+    }
+  
+    mat-list-item {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+  
+      &:hover {
+        background-color: #555;
+      }
+  
+      mat-icon {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+  
+      .menu-label {
+        font-size: 16px;
+        white-space: nowrap;
+        color:white;
+        overflow: hidden;
+      }
+    }
+  
+    .sub-menu {
+      padding-left: 30px;
+      font-size: 14px;
+    }
+
+    .active-tab {
+      background-color: #3f51b5; // Change to your preferred highlight color
+      color: white;
+  
+      &:hover {
+        background-color: #2c3e75; // Darker shade for hover effect
+      }
+    }
+
+    
+  }
+
+  
+  .side-icon {
+    color: white;
+  }
+
+  mat-list {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+
+    &:hover {
+      background-color: #555;
+    }
+
+    mat-icon {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .menu-label {
+      font-size: 16px;
+      white-space: nowrap;
+      color:white;
+      overflow: hidden;
+    }
+
+  }

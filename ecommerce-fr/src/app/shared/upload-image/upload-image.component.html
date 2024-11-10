@@ -1,0 +1,35 @@
+<mat-card class="upload-card">
+    <h2 mat-card-title>Upload Images</h2>
+    <div class="upload-container">
+      <button mat-raised-button color="primary" (click)="fileInput.click()">
+        <mat-icon>upload</mat-icon> Choose Images
+      </button>
+      <input type="file" #fileInput (change)="onFilesSelected($event)" multiple hidden />
+  
+      <div *ngIf="imagePreviews.length" class="preview-container">
+        <div *ngFor="let image of imagePreviews; let i = index" class="image-preview-wrapper">
+          <img [src]="image" alt="Image preview" class="image-preview" />
+
+          <button mat-icon-button color="warn" (click)="removeImage(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  
+    <div *ngIf="uploading" class="progress-container">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+      <p>Uploading...</p>
+    </div>
+  
+    <div *ngIf="!uploading && imagePreviews.length" class="footer-button">
+      <button class="upload-button" mat-raised-button color="accent" (click)="uploadImages()">
+        <i class="bi bi-upload"></i>
+        Upload</button>
+      <button class="cancel-button" mat-raised-button color="warn" (click)="cancelImages()">
+        <i class="bi bi-x-square-fill"></i>
+        Cancel</button>
+    </div>
+  </mat-card>
+  

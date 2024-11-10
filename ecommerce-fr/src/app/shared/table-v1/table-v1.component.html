@@ -1,0 +1,20 @@
+<mat-toolbar class="table-header">
+  <span>{{title}}</span>
+  <span class="spacer"></span>
+    <button *ngIf="headerButton" mat-raised-button color="primary" (click)="addProduct()">Add</button>
+</mat-toolbar>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+  <!-- Dynamic column definitions -->
+  <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+    <mat-header-cell *matHeaderCellDef> {{ column.header }} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element[column.columnDef] }} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  
+</mat-table>
+
+<!-- Add the paginator -->
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
